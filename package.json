@@ -1,0 +1,21 @@
+{
+  "name": "ember-script-brunch",
+  "version": "1.8.0",
+  "description": "Adds EmberScript support to brunch.",
+  "author": "Huafu Gandon <huafu.gandon@gmail.com>",
+  "homepage": "https://github.com/huafu/ember-script-brunch",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:huafu/ember-script-brunch.git"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
+  "dependencies": {
+    "ember-script": "0.0.14"
+  },
+  "devDependencies": {
+    "mocha": "1.11.0",
+    "chai": "1.7.0"
+  }
+}
