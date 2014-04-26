@@ -34,14 +34,13 @@ EmberScriptCompiler.prototype.compile = function (data, path, callback) {
   var compiled, jsAST, esAST, result,
       options = {
         bare: this.bare == null ? !this.isVendor(path) : this.bare,
-        sourceMap: this.sourceMaps,
-        sourceFiles: [path],
+        sourceMapFile: path,
         optimise: this.optimise
       };
   try {
     esAST = emberScript.parse(data, options);
     jsAST = emberScript.compile(esAST, {bare: options.bare});
-    compiled = options.sourceMap ? emberScript.jsWithSourceMap(jsAST, path, options) : emberScript.js(jsAST, options);
+    compiled = this.sourceMaps ? emberScript.jsWithSourceMap(jsAST, null, options) : emberScript.js(jsAST, options);
   } catch (err) {
     var loc = err.location, error;
     if (loc) {
@@ -52,9 +51,9 @@ EmberScriptCompiler.prototype.compile = function (data, path, callback) {
     return callback(error);
   }
 
-  result = options.sourceMap ? {
+  result = this.sourceMaps ? {
     data: compiled.code,
-    map: compiled.map
+    map: JSON.stringify(compiled.map)
   } : {
     data: compiled
   };
