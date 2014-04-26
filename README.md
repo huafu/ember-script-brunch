@@ -1,5 +1,5 @@
 ## ember-script-brunch
-Adds [EmberScript]http://emberscript.com) support to [brunch](http://brunch.io).
+Adds [EmberScript](http://emberscript.com) support to [brunch](http://brunch.io).
 
 ## Installation
 Install the plugin via npm with `npm install --save ember-script-brunch`.
